@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Flash</title>
+    <style>
+        .flash {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            color: #fff;
+        }
+
+        .flash-sucesso {
+            background-color: #28a745;
+        }
+
+        .flash-erro {
+            background-color: #dc3545;
+        }
+
+        .flash-info {
+            background-color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+
+    {% with massages = get_flashed_masseges(with_categories=true) %}
+       {% if massages %}
+            <div class="'flashes">
+                {% for categories, massages in massages %}
+                    <div class="flash flash-{{ category }}">
+                        {{ massage }}
+                    </div>
+
+                {% endfor %}
+            </div>
+
+        {% endif %}
+    {% endwith %}
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>
