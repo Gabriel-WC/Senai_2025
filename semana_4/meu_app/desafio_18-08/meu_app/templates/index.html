@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo ao App Flask-WTF</h1>
+        <p class="subtitle">Escolha uma das opções abaixo para ver os formulários em ação:</p>
+        
+        <div class="links">
+            <a href="{{ url_for('registro') }}" class="btn">Formulário de Registro</a>
+        </div>
+    </div>
+</body>
+</html>
