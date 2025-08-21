@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Flask-WTF - {{ title }}</title>
+    <style>
+        .error { color: red; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <p><a href="/">Voltar para o início</a></p>
+    <hr>
+    
+    <form method="POST" action="" novalidate>
+        {{ form.hidden_tag() }}
+        
+        <div class="form-group">
+            {{ form.nome_evento.label }}<br>
+            {{ form.nome_evento(size=30) }}<br>
+            {% for error in form.nome_evento.errors %}
+                <span class="error">[{{ error }}]</span><br>
+            {% endfor %}
+        </div>
+        
+        <div class="form-group">
+            {{ form.data_evento.label }}<br>
+            {{ form.data_evento() }}<br>
+            {% for error in form.data_evento.errors %}
+                <span class="error">[{{ error }}]</span><br>
+            {% endfor %}
+        </div>
+        
+        <div class="form-group">
+            {{ form.organizador.label }}<br>
+            {{ form.organizador(size=30) }}<br>
+            {% for error in form.organizador.errors %}
+                <span class="error">[{{ error }}]</span><br>
+            {% endfor %}
+        </div>
+        
+        <div class="form-group">
+            {{ form.email.label }}<br>
+            {{ form.email(size=30) }}<br>
+            {% for error in form.email.errors %}
+                <span class="error">[{{ error }}]</span><br>
+            {% endfor %}
+        </div>
+        
+        <div class="form-group">
+            {{ form.tipo_evento.label }}<br>
+            {{ form.tipo_evento() }}<br>
+            {% for error in form.tipo_evento.errors %}
+                <span class="error">[{{ error }}]</span><br>
+            {% endfor %}
+        </div>
+        
+        <div class="form-group">
+            {{ form.descricao.label }}<br>
+            {{ form.descricao(rows=5, cols=32) }}<br>
+            {% for error in form.descricao.errors %}
+                <span class="error">[{{ error }}]</span><br>
+            {% endfor %}
+        </div>
+        
+        <div class="form-group">
+            {{ form.enviar() }}
+        </div>
+    </form>
+</body>
+</html>
