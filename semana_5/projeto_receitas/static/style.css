@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #4CAF50;
+}
+
+h1 {
+    color: #333;
+}
+
+.mensagens {
+    margin-bottom: 20px;
+}
+
+.mensagem {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.mensagem.erro {
+    background-color: #ffebee;
+    color: #d32f2f;
+    border: 1px solid #f44336;
+}
+
+.formulario, .receita {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.campo {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button, .botao {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover, .botao:hover {
+    background-color: #45a049;
+}
+
+.detalhes {
+    margin: 20px 0;
+}
+
+.secao {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 5px;
+    border-left: 4px solid #4CAF50;
+}
+
+.secao h4 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.secao p {
+    white-space: pre-line;
+    line-height: 1.6;
+}
