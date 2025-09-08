@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Receitas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="my-4">
+            <h1>Plataforma de Receitas</h1>
+            <nav>
+                <a href="/" class="btn btn-primary">Início</a>
+                <a href="/receita/nova" class="btn btn-success">Criar Nova Receita</a>
+            </nav>
+        </header>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer class="mt-4">
+            <p>&copy; 2023 Plataforma de Receitas</p>
+        </footer>
+    </div>
+</body>
+</html>
