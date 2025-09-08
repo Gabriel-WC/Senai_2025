@@ -28,7 +28,7 @@ meu_app/
 
 1. Clone o repositório:
    ```
-   git clone <URL_DO_REPOSITORIO>
+   git clone https://github.com/Gabriel-WC/Senai_2025.git
    ```
 
 2. Navegue até o diretório do projeto:
