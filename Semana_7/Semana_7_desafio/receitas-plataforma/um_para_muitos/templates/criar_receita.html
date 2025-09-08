@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Receita</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Criar Nova Receita</h1>
+        <form action="{{ url_for('criar_receita') }}" method="post">
+            <div>
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" required>
+            </div>
+            <div>
+                <label for="instrucoes">Instruções:</label>
+                <textarea id="instrucoes" name="instrucoes" required></textarea>
+            </div>
+            <div>
+                <label for="chef_id">Selecione o Chef:</label>
+                <select id="chef_id" name="chef_id" required>
+                    {% for chef in chefs %}
+                        <option value="{{ chef.id }}">{{ chef.nome }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="ingredientes">Ingredientes (separados por vírgula):</label>
+                <input type="text" id="ingredientes" name="ingredientes" required>
+            </div>
+            <button type="submit">Criar Receita</button>
+        </form>
+        <a href="{{ url_for('index') }}">Voltar para a lista de receitas</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+O arquivo `database.db` é um arquivo de banco de dados SQLite que não contém código ou texto que possa ser gerado diretamente. Ele é criado e gerenciado pelo SQLAlchemy quando você executa a aplicação e realiza operações de banco de dados, como criar tabelas e inserir dados.
+
+Portanto, o arquivo `database.db` na pasta `um_para_muitos` será inicialmente vazio e será preenchido conforme a aplicação for executada e interagir com o banco de dados.
+
+Se precisar de mais informações sobre como criar e manipular o banco de dados, por favor, me avise!
