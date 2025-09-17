@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+.flash {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.flash.success { background-color: #d4edda; color: #155724; }
+.flash.danger  { background-color: #f8d7da; color: #721c24; }
+.flash.info    { background-color: #cce5ff; color: #004085; }
+
+form { margin: 5px 0; }
+input { margin-right: 5px; }
+button { padding: 2px 5px; }
+button.danger { background-color: #dc3545; color: white; border: none; }
+button:hover { opacity: 0.9; }
