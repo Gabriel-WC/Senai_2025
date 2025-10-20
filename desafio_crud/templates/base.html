@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}CRUD FastAPI{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Lista de Itens</h1>
+        <h5>CRUD com FastAPI + Jinja2</h5>
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/novo">Novo Item</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
