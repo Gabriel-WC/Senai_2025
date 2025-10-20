@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Minha Estante Virtual</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="{{ url_for('autores') }}">Autores</a>
+            <a href="{{ url_for('livros') }}">Livros</a>
+        </nav>
+        <hr>
+        {% block conteudo %}{% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="receita">
+    <h2>Receita Criada com Sucesso!</h2>
+    
+    <div class="detalhes">
+        <h3>{{ nome }}</h3>
+        
+        <div class="secao">
+            <h4>Ingredientes:</h4>
+            <p>{{ ingredientes }}</p>
+        </div>
+        
+        <div class="secao">
+            <h4>Modo de Preparo:</h4>
+            <p>{{ modo_preparo }}</p>
+        </div>
+    </div>
+    
+    <a href="/nova-receita" class="botao">Criar Nova Receita</a>
+</div>
+{% endblock %}

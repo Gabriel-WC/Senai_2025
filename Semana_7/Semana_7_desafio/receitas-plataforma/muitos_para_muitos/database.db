@@ -1,0 +1,4 @@
+O arquivo `database.db` é o arquivo do banco de dados SQLite e não deve conter código, pois é gerado automaticamente pelo SQLAlchemy quando a aplicação é executada pela primeira vez. Portanto, este arquivo será deixado em branco.
+
+database.db
+<!-- Este arquivo é intencionalmente deixado em branco. -->

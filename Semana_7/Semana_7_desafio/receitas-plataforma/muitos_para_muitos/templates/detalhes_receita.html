@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h2>{{ receita.titulo }}</h2>
+        <p class="text-muted">
+            Por <a href="{{ url_for('detalhes_chef', chef_id=receita.chef.id) }}">{{ receita.chef.nome }}</a> • 
+            {{ receita.data_criacao.strftime('%d/%m/%Y') }}
+        </p>
+        
+        <h4 class="mt-4">Ingredientes</h4>
+        <ul class="list-group mb-4">
+            {% for ri in receita.ingredientes %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ ri.ingrediente.nome }}
+                {% if ri.quantidade %}
+                <span class="badge bg-primary rounded-pill">{{ ri.quantidade }}</span>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        
+        <h4>Modo de Preparo</h4>
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">{{ receita.instrucoes | replace('\n', '<br>') | safe }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4">
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Voltar para a lista</a>
+</div>
+{% endblock %}

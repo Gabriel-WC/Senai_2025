@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h2 class="mb-4">Novo Chef</h2>
+        
+        <form method="POST">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome do Chef</label>
+                <input type="text" class="form-control" id="nome" name="nome" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="especialidade" class="form-label">Especialidade</label>
+                <input type="text" class="form-control" id="especialidade" name="especialidade" required>
+            </div>
+            
+            <div class="mb-4">
+                <label for="anos_experiencia" class="form-label">Anos de Experiência</label>
+                <input type="number" class="form-control" id="anos_experiencia" name="anos_experiencia" min="0" required>
+            </div>
+            
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{{ url_for('index') }}" class="btn btn-secondary me-md-2">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Criar Chef</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

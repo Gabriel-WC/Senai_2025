@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2 class="mb-4">Nova Receita</h2>
+        
+        <form method="POST">
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Título da Receita</label>
+                <input type="text" class="form-control" id="titulo" name="titulo" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="instrucoes" class="form-label">Modo de Preparo</label>
+                <textarea class="form-control" id="instrucoes" name="instrucoes" rows="5" required></textarea>
+            </div>
+            
+            <div class="mb-3">
+                <label for="chef_id" class="form-label">Chef</label>
+                <select class="form-select" id="chef_id" name="chef_id" required>
+                    <option value="" selected disabled>Selecione um chef</option>
+                    {% for chef in chefs %}
+                    <option value="{{ chef.id }}">{{ chef.nome }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="mb-4">
+                <label for="ingredientes" class="form-label">Ingredientes</label>
+                <textarea class="form-control" id="ingredientes" name="ingredientes" rows="5" 
+                          placeholder="Digite cada ingrediente em uma linha. Use o formato: Ingrediente: Quantidade (opcional)&#10;Exemplo:&#10;Farinha de trigo: 2 xícaras&#10;Ovos: 3 unidades&#10;Açúcar: 1 xícara"></textarea>
+                <div class="form-text">
+                    Informe um ingrediente por linha. Você pode especificar a quantidade usando ":" (ex: "Farinha: 2 xícaras").
+                </div>
+            </div>
+            
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{{ url_for('index') }}" class="btn btn-secondary me-md-2">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Criar Receita</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

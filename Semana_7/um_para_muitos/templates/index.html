@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários e Publicações</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Usuários e Publicações</h1>
+
+    <!-- Formulário para adicionar usuário -->
+    <form action="{{ url_for('adicionar_usuario') }}" method="POST">
+        <input type="text" name="usuario_nome" placeholder="Nome do usuário" required>
+        <button type="submit">Adicionar Usuário</button>
+    </form>
+
+    <hr>
+
+    {% for usuario in usuarios %}
+    <div class="usuario">
+        <h2>{{ usuario.usuario_nome }}</h2>
+
+        <!-- Formulário para adicionar publicação -->
+        <form action="{{ url_for('adicionar_perfil') }}" method="POST">
+            <input type="hidden" name="usuario_id" value="{{ usuario.id }}">
+            <input type="text" name="titulo" placeholder="Título da publicação" required>
+            <textarea name="conteudo" placeholder="Conteúdo"></textarea>
+            <button type="submit">Adicionar Publicação</button>
+        </form>
+
+        <!-- Lista de publicações -->
+        {% if usuario.publicacoes %}
+        <ul>
+            {% for pub in usuario.publicacoes %}
+            <li>{{ pub.titulo }}{% if pub.conteudo %} - {{ pub.conteudo }}{% endif %}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <!-- Botão para excluir usuário -->
+        <form action="{{ url_for('excluir_usuario', usuario_id=usuario.id) }}" method="POST">
+            <button type="submit" class="danger">Excluir Usuário</button>
+        </form>
+    </div>
+    <hr>
+    {% endfor %}
+</div>
+</body>
+</html>

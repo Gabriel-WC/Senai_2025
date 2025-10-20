@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h3 class="card-title">{{ chef.nome }}</h3>
+                <p class="card-text">
+                    <strong>Especialidade:</strong> {{ chef.perfil.especialidade }}<br>
+                    <strong>Experiência:</strong> {{ chef.perfil.anos_experiencia }} anos
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-8">
+        <h3>Receitas de {{ chef.nome }}</h3>
+        
+        {% if chef.receitas %}
+        <div class="list-group">
+            {% for receita in chef.receitas %}
+            <a href="{{ url_for('detalhes_receita', receita_id=receita.id) }}" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ receita.titulo }}</h5>
+                    <small>{{ receita.data_criacao.strftime('%d/%m/%Y') }}</small>
+                </div>
+                <p class="mb-1">{{ receita.instrucoes[:100] }}...</p>
+            </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="alert alert-info">
+            Este chef ainda não criou nenhuma receita.
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

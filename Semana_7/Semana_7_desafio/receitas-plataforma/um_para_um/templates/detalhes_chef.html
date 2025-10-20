@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Chef</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% include 'base.html' %}
+    <div class="container">
+        <h1>Detalhes do Chef: {{ chef.nome }}</h1>
+        <p><strong>Especialidade:</strong> {{ chef.perfil. especialidade }}</p>
+        <p><strong>Anos de Experiência:</strong> {{ chef.perfil.anos_experiencia }}</p>
+
+        <h2>Receitas do Chef</h2>
+        <ul>
+            {% for receita in chef.receitas %}
+                <li>
+                    <a href="{{ url_for('detalhes_receita', receita_id=receita.id) }}">{{ receita.titulo }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{ url_for('index') }}">Voltar para a lista de receitas</a>
+    </div>
+</body>
+</html>

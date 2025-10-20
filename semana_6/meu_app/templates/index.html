@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Usuários Cadastrados</h1>
+        <ul class="list-group">
+            {% for usuario in usuarios %}
+                <li class="list-group-item">
+                    {{ usuario.nome }} - {{ usuario.email }}
+                    <a href="{{ url_for('editar_usuario', id=usuario.id) }}" class="btn btn-warning btn-sm float-right ml-2">Editar</a>
+                    <a href="{{ url_for('deletar_usuario', id=usuario.id) }}" class="btn btn-danger btn-sm float-right">Deletar</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2 class="mt-5">Postagens</h2>
+        <form action="{{ url_for('adicionar_usuario') }}" method="post">
+            <div class="form-group">
+                <label for="postagem">Nova Postagem:</label>
+                <input type="text" class="form-control" id="postagem" name="postagem" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Adicionar Postagem</button>
+        </form>
+
+        <h2 class="mt-5">Requisição de Tarefas</h2>
+        <form action="{{ url_for('cadastrar_tarefa') }}" method="post">
+            <div class="form-group">
+                <label for="usuario_id">Selecionar Usuário:</label>
+                <select class="form-control" id="usuario_id" name="usuario_id" required>
+                    {% for usuario in usuarios %}
+                        <option value="{{ usuario.id }}">{{ usuario.nome }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="nome_tarefa">Nome da Tarefa:</label>
+                <input type="text" class="form-control" id="nome_tarefa" name="nome_tarefa" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar Tarefa</button>
+        </form>
+    </div>
+</body>
+</html>

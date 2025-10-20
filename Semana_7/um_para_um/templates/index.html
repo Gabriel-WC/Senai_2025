@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuários e Perfis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Usuários</h1>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- Formulário para adicionar usuário -->
+    <h2>Criar Usuário</h2>
+    <form action="{{ url_for('adicionar_usuario') }}" method="POST">
+        <input type="text" name="nome" placeholder="Nome do usuário" required>
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <!-- Lista de usuários e perfis -->
+    <h2>Lista de Usuários</h2>
+    <ul>
+        {% for usuario in usuarios %}
+            <li>
+                <strong>{{ usuario.nome }}</strong>
+                {% if usuario.perfil %}
+                    - Perfil: {{ usuario.perfil.nome_completo }}
+                {% else %}
+                    - Sem perfil
+                    <!-- Formulário rápido para criar perfil -->
+                    <form action="{{ url_for('adicionar_perfil') }}" method="POST" style="display:inline;">
+                        <input type="hidden" name="usuario_id" value="{{ usuario.id }}">
+                        <input type="text" name="nome_completo" placeholder="Nome completo" required>
+                        <input type="text" name="bio" placeholder="Bio">
+                        <button type="submit">Criar Perfil</button>
+                    </form>
+                {% endif %}
+                <!-- Botão para excluir usuário -->
+                <form action="{{ url_for('excluir_usuario', usuario_id=usuario.id) }}" method="POST" style="display:inline;">
+                    <button type="submit">Excluir</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
